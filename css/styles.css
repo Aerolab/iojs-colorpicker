@@ -378,6 +378,8 @@ main {
     margin: 0 auto;
     width: 100%;
     max-width: 500px; }
+  main.loading {
+    visibility: hidden; }
 
 aside {
   position: absolute;
