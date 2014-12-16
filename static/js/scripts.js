@@ -157,9 +157,17 @@ $(document).ready(function(){
 
   $('#main_color_preview').click(function(event){
     $('#main_color').colpickShow();
+    return false;
   });
   $('#background_color_preview').click(function(event){
     $('#background_color').colpickShow();
+    return false;
+  });
+
+
+  $('body').on('click', function(event){
+    $('#main_color').colpickHide();
+    $('#background_color').colpickHide();
   });
 
   $('main').removeClass('loading');
