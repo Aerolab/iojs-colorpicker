@@ -156,4 +156,32 @@ $(document).ready(function(){
 
   $('main').removeClass('loading');
 
+  var appUrl = 'http://aerolab.github.io/iojs-colorpicker/';
+  var shareText = 'Just selected a new color for the #iojs logo check it out!';
+
+  $(".share").click(function() {
+    var window_size = '';
+    var hash = window.location.hash;
+    hash = hash.replace('#', '%23');
+
+    if ($(this).hasClass('facebook')) {
+
+      window_size = "width=585,height=368";
+      url = 'http://www.facebook.com/sharer/sharer.php?u=' + appUrl + hash;
+
+    } else if ($(this).hasClass('twitter')) {
+
+      window_size = "width=585,height=261";
+      shareText = shareText.replace('#', '%23');
+      url = 'http://www.twitter.com/intent/tweet?text=' + shareText + ' %23' + $('#main_color').val() + ' ' + appUrl + hash + ' @aerolab';
+
+    }
+
+    if (window_size != '') {
+      window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,' + window_size);
+    }
+    
+    return false;
+  });
+
 });

@@ -394,6 +394,13 @@ aside {
   margin-bottom: 30px;
   position: relative; }
 
+.share.facebook {
+  background: #3b5998; }
+.share.twitter {
+  background: #55ACEE; }
+.share:first-child {
+  margin-bottom: 30px; }
+
 .preview_color {
   position: absolute;
   width: 20px;
@@ -859,9 +866,6 @@ colpick Color Picker / colpick.com
   background-color: #101010;
   border-color: #444; }
 
-.slider {
-  margin-top: 11px; }
-
 .slider > .dragger {
   background: #ffffff;
   -webkit-border-radius: 10px;
@@ -903,5 +907,3 @@ colpick Color Picker / colpick.com
     padding: 0 10px;
     margin-bottom: 0;
     float: left; } }
-
-/*# sourceMappingURL=styles.css.map */
