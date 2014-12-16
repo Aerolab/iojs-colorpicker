@@ -1,0 +1,61 @@
+@import "normalize"
+
+$blue: #032c2c
+$orange: #f26b24
+$white: #ffffff
+$black: #000000
+
+*
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+html, body
+  height: 100%
+  font-family: "Source Sans Pro", sans-serif
+
+main
+  padding: 30px
+  padding-left: 230px
+  height: 100%
+  display: flex
+  align-items: center
+  text-align: center
+  background: $blue
+
+  svg
+    display: block
+    margin: 0 auto
+    width: 100%
+    max-width: 500px
+
+aside
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  width: 250px
+  padding: 20px 20px 30px 20px
+  background: transparentize($white, 0.92)
+
+
+label
+  display: block
+  padding: 10px 0
+  color: transparentize($white, 0.2)
+
+input
+  width: 100%
+  border: none
+  padding: 10px 15px
+  color: $white
+  background: transparentize($black, 0.6)
+  box-shadow: inset 0px 1px 2px transparentize($black, 0.4)
+  border-radius: 4px
+
+  &:focus
+    outline: none
+
+
+@import "colpick"
+@import "slider"
