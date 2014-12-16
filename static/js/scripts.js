@@ -53,7 +53,7 @@ function updateColors(newColor, shadowOpacity, newBackground) {
 
   clearTimeout(hashChangeTimeout);
   hashChangeTimeout = setTimeout(function(){
-    window.location.hash = currentColor +'-'+ currentBackground +'-'+ Math.round(currentOpacity*100)/100;
+    window.location.hash = currentColor.toLowerCase() +'-'+ currentBackground.toLowerCase() +'-'+ Math.round(currentOpacity*100)/100;
   }, 300);
 }
 
@@ -66,8 +66,7 @@ $(document).ready(function(){
     submit:0,
     colorScheme:'dark',
     onChange: function(hsb,hex,rgb,el,bySetColor) {
-      // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
-      if(!bySetColor) $(el).val(hex);
+      if(!bySetColor) { $(el).val('#'+hex); }
 
       updateColors(hex, currentOpacity, currentBackground);
     }
@@ -81,8 +80,7 @@ $(document).ready(function(){
     submit:0,
     colorScheme:'dark',
     onChange:function(hsb,hex,rgb,el,bySetColor) {
-      // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
-      if(!bySetColor) $(el).val(hex);
+      if(!bySetColor) { $(el).val('#'+hex); }
 
       updateColors(currentColor, currentOpacity, hex);
     }
@@ -148,8 +146,8 @@ $(document).ready(function(){
   $(window).on('hashchange', function() {
     restoreColorFromHash();
 
-    $('#main_color').colpickSetColor( currentColor );
-    $('#background_color').colpickSetColor( currentBackground );
+    $('#main_color').colpickSetColor( currentColor ).val('#'+ currentColor);
+    $('#background_color').colpickSetColor( currentBackground ).val('#'+ currentBackground);
     $('#shadow_opacity').simpleSlider('setRatio', currentOpacity);
   });
 
