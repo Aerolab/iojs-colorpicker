@@ -5,11 +5,12 @@
     padding-top: 180px+30px
 
   aside
+    display: block
     width: auto
-    min-height: 180px
+    min-height: 175px
     right: 0
     bottom: auto
-    padding: 100px 10px 20px 10px
+    padding: 110px 10px 20px 10px
     border-right: none
     border-bottom: 1px dashed $gray
 
@@ -73,5 +74,22 @@
       background-position: -91px -150px
 
   .input-social
-    display: none
+    position: absolute
+    top: 20px
+    right: 20px
+    left: auto
+    bottom: auto
+    width: 31px
+    z-index: 10
 
+  button.share
+    background-size: 129px 169px
+    width: 31px
+    height: 31px
+    margin: 0
+
+    &.twitter
+      background-position: -37px -74px
+      margin-bottom: 5px
+    &.facebook
+      background-position: -0px -74px

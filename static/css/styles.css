@@ -385,6 +385,10 @@ main {
   padding: 30px;
   padding-left: 310px;
   height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   align-items: center;
   text-align: center;
@@ -406,6 +410,10 @@ aside {
   padding: 100px 30px 30px 30px;
   background: #211f22;
   border-right: 1px dashed #4d4d4d;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
   align-items: center; }
 
@@ -970,11 +978,12 @@ button.btn {
     padding-top: 210px; }
 
   aside {
+    display: block;
     width: auto;
-    min-height: 180px;
+    min-height: 175px;
     right: 0;
     bottom: auto;
-    padding: 100px 10px 20px 10px;
+    padding: 110px 10px 20px 10px;
     border-right: none;
     border-bottom: 1px dashed #4d4d4d; }
 
@@ -1033,6 +1042,23 @@ button.btn {
     background-position: -91px -150px; }
 
   .input-social {
-    display: none; } }
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    left: auto;
+    bottom: auto;
+    width: 31px;
+    z-index: 10; }
+
+  button.share {
+    background-size: 129px 169px;
+    width: 31px;
+    height: 31px;
+    margin: 0; }
+    button.share.twitter {
+      background-position: -37px -74px;
+      margin-bottom: 5px; }
+    button.share.facebook {
+      background-position: 0px -74px; } }
 
 /*# sourceMappingURL=styles.css.map */

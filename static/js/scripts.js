@@ -164,10 +164,17 @@ $(document).ready(function(){
     return false;
   });
 
-
-  $('body').on('click', function(event){
+  // Hide the pickers when clicking on anything else (iOS bug)
+  $('body').on('click', '.colpick', function(event){
+    event.stopPropagation();
+  });
+  $('body, main, aside').on('click', function(event){
     $('#main_color').colpickHide();
     $('#background_color').colpickHide();
+  });
+
+  $(document).on('touchmove', function(event){
+    event.preventDefault();
   });
 
   $('main').removeClass('loading');
