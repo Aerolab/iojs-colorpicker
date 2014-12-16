@@ -1,0 +1,71 @@
+*
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+html, body
+  height: 100%
+  font-family: "Source Sans Pro", sans-serif
+
+
+main
+  padding: 30px
+  padding-left: 310px
+  height: 100%
+  display: flex
+  align-items: center
+  text-align: center
+  background: $blue
+
+  svg
+    display: block
+    margin: 0 auto
+    width: 100%
+    max-width: 500px
+
+  &.loading
+    visibility: hidden
+
+
+aside
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  width: 280px
+  padding: 100px 30px 30px 30px
+  background: $darkGray
+  border-right: 1px dashed $gray
+  display: flex
+  align-items: center
+
+
+.logo-holder
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+
+h1.logo
+  display: block
+  margin: 60px auto 0 auto
+  width: 173px
+  height: 79px
+  @extend .sprite
+  background-position: 0px 0px
+
+
+button.share
+
+  @extend .sprite
+
+  display: inline-block
+  width: 40px
+  height: 40px
+  border: none
+  margin: 0 5px
+
+  &.facebook
+    background-position: -0px -100px
+  &.twitter
+    background-position: -50px -100px

@@ -1,3 +1,4 @@
+/* IO.js Logo Generator */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -356,15 +357,6 @@ td,
 th {
   padding: 0; }
 
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-html, body {
-  height: 100%;
-  font-family: "Source Sans Pro", sans-serif; }
-
 .cf:before, .input-color:before, .cf:after, .input-color:after {
   content: " ";
   display: table; }
@@ -375,6 +367,19 @@ html, body {
 .screenreader {
   position: absolute;
   left: -999px; }
+
+.sprite, h1.logo, button.share {
+  background: url(images/sprite.png) no-repeat 0px 0px;
+  background-size: 172.5px 225px; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  font-family: "Source Sans Pro", sans-serif; }
 
 main {
   padding: 30px;
@@ -404,10 +409,6 @@ aside {
   display: flex;
   align-items: center; }
 
-.sprite, h1.logo, button.share, button.share:hover {
-  background: url(images/sprite.png) no-repeat 0px 0px;
-  background-size: 172.5px 225px; }
-
 .logo-holder {
   position: absolute;
   top: 0;
@@ -421,95 +422,16 @@ h1.logo {
   height: 79px;
   background-position: 0px 0px; }
 
-.input-group {
-  margin-bottom: 10px;
-  position: relative;
-  vertical-align: top; }
-
 button.share {
   display: inline-block;
   width: 40px;
   height: 40px;
   border: none;
   margin: 0 5px; }
-  button.share, button.share:hover {
-    border: none; }
-  button.share.facebook, button.share.facebook:hover {
+  button.share.facebook {
     background-position: 0px -100px; }
-  button.share.twitter, button.share.twitter:hover {
+  button.share.twitter {
     background-position: -50px -100px; }
-
-.preview-color {
-  overflow: hidden;
-  width: 28px;
-  height: 28px;
-  background: transparent;
-  margin-top: 1px;
-  border-radius: 30px; }
-
-label {
-  display: block;
-  padding: 4px 0;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: bold;
-  color: #4d4d4d; }
-
-input {
-  width: 100%;
-  border: none;
-  line-height: 20px;
-  padding: 4px 9px 4px 9px;
-  color: #ffffff;
-  background: none;
-  border: 1px solid #4d4d4d;
-  border-radius: 4px;
-  text-transform: uppercase; }
-  input:focus {
-    outline: none; }
-
-button {
-  width: 100%;
-  padding: 2px 15px 4px 15px;
-  border: none;
-  border-radius: 4px;
-  border: 2px solid #ffffff;
-  color: #ffffff;
-  background: none;
-  text-align: center; }
-  button:focus {
-    outline: none; }
-  button:hover {
-    background: rgba(0, 0, 0, 0.3); }
-
-.main-inputs {
-  width: 100%; }
-
-.input-color .preview-color, .input-color input, .input-color label {
-  float: left; }
-.input-color .preview-color {
-  margin-left: 0px; }
-.input-color input {
-  width: 77px;
-  margin-left: 20px; }
-.input-color label {
-  margin-left: 10px; }
-
-.input-slider {
-  margin-top: 45px;
-  margin-bottom: 35px; }
-  .input-slider label {
-    margin-top: -15px;
-    margin-left: 137px; }
-
-.input-social {
-  text-align: center;
-  padding: 0px 0px 30px 0px;
-  margin: 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0; }
 
 /*
 colpick Color Picker / colpick.com
@@ -964,6 +886,84 @@ colpick Color Picker / colpick.com
   background: linear-gradient(top, #8DCA09, #72A307);
   border-color: #496805; }
 
+.input-group {
+  margin-bottom: 10px;
+  position: relative;
+  vertical-align: top; }
+
+.preview-color {
+  overflow: hidden;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  margin-top: 1px;
+  border-radius: 30px;
+  cursor: pointer; }
+
+label {
+  display: block;
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #4d4d4d; }
+
+input {
+  width: 100%;
+  border: none;
+  line-height: 20px;
+  padding: 4px 9px 4px 9px;
+  color: #ffffff;
+  background: none;
+  border: 1px solid #4d4d4d;
+  border-radius: 4px;
+  text-transform: uppercase; }
+  input:focus {
+    outline: none; }
+
+button.btn {
+  width: 100%;
+  padding: 2px 15px 4px 15px;
+  border: none;
+  border-radius: 4px;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  background: none;
+  text-align: center; }
+  button.btn:focus {
+    outline: none; }
+  button.btn:hover {
+    background-color: rgba(0, 0, 0, 0.3); }
+
+.main-inputs {
+  width: 100%; }
+
+.input-color .preview-color, .input-color input, .input-color label {
+  float: left; }
+.input-color .preview-color {
+  margin-left: 0px; }
+.input-color input {
+  width: 77px;
+  margin-left: 20px; }
+.input-color label {
+  margin-left: 10px; }
+
+.input-slider {
+  margin-top: 45px;
+  margin-bottom: 35px; }
+  .input-slider label {
+    margin-top: -15px;
+    margin-left: 137px; }
+
+.input-social {
+  text-align: center;
+  padding: 0px 0px 30px 0px;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
 @media( max-width: 768px ) {
   main {
     padding-left: 30px;
@@ -1015,7 +1015,7 @@ colpick Color Picker / colpick.com
   .hidden-mobile {
     display: none; }
 
-  button.invert, button.invert:hover, button.randomize, button.randomize:hover, button.reset, button.reset:hover {
+  button.invert, button.randomize, button.reset {
     overflow: hidden;
     background: url(images/sprite.png) no-repeat 0px 0px;
     background-size: 172.5px 225px;
@@ -1023,11 +1023,13 @@ colpick Color Picker / colpick.com
     height: 38px;
     border: none;
     text-indent: -9999px; }
-  button.invert, button.invert:hover {
+    button.invert:hover, button.randomize:hover, button.reset:hover {
+      background-color: transparent; }
+  button.invert {
     background-position: 0px -150px; }
-  button.randomize, button.randomize:hover {
+  button.randomize {
     background-position: -45px -150px; }
-  button.reset, button.reset:hover {
+  button.reset {
     background-position: -91px -150px; }
 
   .input-social {

@@ -1,0 +1,89 @@
+
+.input-group
+  margin-bottom: 10px
+  position: relative
+  vertical-align: top
+
+.preview-color
+  overflow: hidden
+  width: 28px
+  height: 28px
+  background: transparent
+  margin-top: 1px
+  border-radius: 30px
+  cursor: pointer
+
+label
+  display: block
+  padding: 4px 0
+  font-size: 14px
+  line-height: 22px
+  font-weight: bold
+  color: $gray
+
+input
+  width: 100%
+  border: none
+  line-height: 20px
+  padding: 4px 9px 4px 9px
+  color: $white
+  background: none
+  border: 1px solid $gray
+  border-radius: 4px
+  text-transform: uppercase
+
+  &:focus
+    outline: none
+
+button.btn
+  width: 100%
+  padding: 2px 15px 4px 15px
+  border: none
+  border-radius: 4px
+  border: 2px solid $white
+  color: $white
+  background: none
+  text-align: center
+
+  &:focus
+    outline: none
+    
+  &:hover
+    background-color: transparentize($black, 0.7)
+
+
+.main-inputs
+  width: 100%
+
+
+.input-color
+  @extend .cf
+
+  .preview-color, input, label
+    float: left
+
+  .preview-color
+    margin-left: 0px
+  input
+    width: 77px
+    margin-left: 20px
+  label
+    margin-left: 10px
+
+
+.input-slider
+  margin-top: 45px
+  margin-bottom: 35px
+
+  label
+    margin-top: -15px
+    margin-left: 137px
+
+.input-social
+  text-align: center
+  padding: 0px 0px 30px 0px
+  margin: 0
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
