@@ -93,10 +93,16 @@ button.share
   border: none
   margin: 0 5px
 
+  &, &:hover
+    @extend .sprite
+    border: none
+
   &.facebook
-    background-position: -0px -100px
+    &, &:hover
+      background-position: -0px -100px
   &.twitter
-    background-position: -50px -100px
+    &, &:hover
+      background-position: -50px -100px
 
 .preview-color
   overflow: hidden

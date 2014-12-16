@@ -404,7 +404,7 @@ aside {
   display: flex;
   align-items: center; }
 
-.sprite, h1.logo, button.share {
+.sprite, h1.logo, button.share, button.share:hover {
   background: url(images/sprite.png) no-repeat 0px 0px;
   background-size: 172.5px 225px; }
 
@@ -432,9 +432,11 @@ button.share {
   height: 40px;
   border: none;
   margin: 0 5px; }
-  button.share.facebook {
+  button.share, button.share:hover {
+    border: none; }
+  button.share.facebook, button.share.facebook:hover {
     background-position: 0px -100px; }
-  button.share.twitter {
+  button.share.twitter, button.share.twitter:hover {
     background-position: -50px -100px; }
 
 .preview-color {
