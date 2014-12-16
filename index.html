@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<main>
+<main class="loading">
 
   <svg version="1.1" id="iojs_logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="1530 1820 1200 620" xml:space="preserve">
@@ -48,16 +48,40 @@
 
 
 <aside>
-  <label for="main_color">Logo</label>
-  <input type="text" id="main_color" value="f26b24" />
+  <div class="input-group">
+    <label for="main_color">Logo</label>
+    <div id="main_color_preview" class="preview_color"></div>
+    <input type="text" id="main_color" value="f26b24" />
+  </div>
 
-  <br/><br/>
-  <label for="background_color">Background</label>
-  <input type="text" id="background_color" value="032c2c" />
+  <div class="input-group">
+    <label for="background_color">Background</label>
+    <div id="background_color_preview" class="preview_color"></div>
+    <input type="text" id="background_color" value="032c2c" />
+  </div>
 
-  <br/><br/>
-  <label for="shadow_opacity">Shadows</label>
-  <input type="text" id="shadow_opacity" value="0.5" />
+  <div class="input-group hide">
+    <button id="invert">Invert</button>
+  </div>
+
+  <div class="input-group">
+    <label for="shadow_opacity">Shadows</label>
+    <input type="text" id="shadow_opacity" value="0.5" />
+  </div>
+
+  <div class="input-group hide">
+    <button id="randomize">Randomize!</button>
+  </div>
+
+  <div class="input-group hide">
+    <button id="reset">Reset</button>
+  </div>
+
+  <div class="input-group hide">
+    <button class="share twitter">Share on Twitter</button>
+    <button class="share facebook">Share on Facebook</button>
+  </div>
+
 </aside>
 
 
