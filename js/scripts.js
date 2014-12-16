@@ -16,15 +16,15 @@ var currentColor = 'f26b24';
 var currentBackground = '032c2c';
 var currentOpacity = defaultShadowOpacity;
 
-// Restore the defaults if they are present in the hash
-var chunks = window.location.hash.split('-');
-if( chunks.length === 3 ) {
-  currentColor = chunks[0];
-  currentBackground = chunks[1];
-  currentOpacity = chunks[2];
-}
 
-function updateLogo(newColor, shadowOpacity) {
+var hashChangeTimeout = null;
+
+
+function updateColors(newColor, shadowOpacity, newBackground) {
+  currentColor = newColor;
+  currentBackground = newBackground;
+  currentOpacity = shadowOpacity;
+
   var color = Color('#'+newColor);
   var darkenMultiplier = 1.0;
   var desaturateMultiplier = 1.0;
@@ -44,29 +44,29 @@ function updateLogo(newColor, shadowOpacity) {
                                           .desaturateByRatio( (primary.toHSV().saturation - quaternary.toHSV().saturation) / primary.toHSV().saturation )
                                           .devalueByRatio( (primary.toHSV().value - quaternary.toHSV().value) / primary.toHSV().value * shadowMultiplier )
                                           .toCSSHex() );
+
+  $('main').css('background-color', '#'+currentBackground);
+
+
+  clearTimeout(hashChangeTimeout);
+  hashChangeTimeout = setTimeout(function(){
+    window.location.hash = currentColor +'-'+ currentBackground +'-'+ Math.round(currentOpacity*100)/100;
+  }, 300);
 }
 
 
+
 $(document).ready(function(){
-
-
-  var hashChangeTimeout = null;
 
   $('#main_color').colpick({
     layout:'hex',
     submit:0,
     colorScheme:'dark',
-    onChange:function(hsb,hex,rgb,el,bySetColor) {
+    onChange: function(hsb,hex,rgb,el,bySetColor) {
       // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
       if(!bySetColor) $(el).val(hex);
 
-      currentColor = hex;
-      updateLogo(currentColor, currentOpacity);
-
-      clearTimeout(hashChangeTimeout);
-      hashChangeTimeout = setTimeout(function(){
-        window.location.hash = currentColor +'-'+ currentBackground +'-'+ Math.round(currentOpacity*100)/100;
-      }, 300);
+      updateColors(hex, currentOpacity, currentBackground);
     }
   }).keyup(function(){
     $(this).colpickSetColor(this.value);
@@ -81,27 +81,15 @@ $(document).ready(function(){
       // Fill the text box just if the color was set using the picker, and not the colpickSetColor function.
       if(!bySetColor) $(el).val(hex);
 
-      currentBackground = hex;
-      $('main').css('background-color', '#'+currentBackground);
-
-      clearTimeout(hashChangeTimeout);
-      hashChangeTimeout = setTimeout(function(){
-        window.location.hash = currentColor +'-'+ currentBackground +'-'+ Math.round(currentOpacity*100)/100;
-      }, 300);
+      updateColors(currentColor, currentOpacity, hex);
     }
   }).keyup(function(){
     $(this).colpickSetColor(this.value);
-  }).colpickSetColor( currentBackground );
+  });
 
 
   $("#shadow_opacity").bind("slider:changed", function (event, data) {
-    currentOpacity = data.ratio;
-    updateLogo(currentColor, currentOpacity);
-
-    clearTimeout(hashChangeTimeout);
-    hashChangeTimeout = setTimeout(function(){
-      window.location.hash = currentColor +'-'+ currentBackground +'-'+ Math.round(currentOpacity*100)/100;
-    }, 300);
+    updateColors(currentColor, data.ratio, currentBackground);
   }).simpleSlider().simpleSlider('setRatio', currentOpacity);
 
 
@@ -113,21 +101,40 @@ $(document).ready(function(){
       .setValue( 0.8 + Math.random() * 0.2 )
       .setSaturation( 0.7 + Math.random() * 0.3 );
 
-    $('#main_color').colpickSetColor( newColor.toCSSHex() );
-    $('#background_color').colpickSetColor( newColor.shiftHue( (Math.random() > 0.5 ? +1 : -1) * 60).toCSSHex() );
-
-    $("#shadow_opacity").simpleSlider('setRatio', defaultShadowOpacity);
+    updateColors(newColor.toCSSHex().slice(1), defaultShadowOpacity, newColor.shiftHue( (Math.random() > 0.5 ? +1 : -1) * 60).toCSSHex().slice(1));
   });
 
 
   $('#reset').on('click', function(event){
     event.preventDefault();
 
-    $('#main_color').colpickSetColor( primary.toCSSHex() );
-    $('#background_color').colpickSetColor( background.toCSSHex() );
-
-    $("#shadow_opacity").simpleSlider('setRatio', defaultShadowOpacity);
+    updateColors(primary.toCSSHex().slice(1), defaultShadowOpacity, background.toCSSHex().slice(1));
   });
+
+
+
+  function restoreColorFromHash() {
+    var chunks = window.location.hash.replace('#', '').split('-');
+    if( chunks.length === 3 ) {
+      currentColor = chunks[0];
+      currentBackground = chunks[1];
+      currentOpacity = chunks[2];
+
+      return true;
+    }
+  }
+
+  $(window).on('hashchange', function() {
+    restoreColorFromHash();
+
+    $('#main_color').colpickSetColor( currentColor );
+    $('#background_color').colpickSetColor( currentBackground );
+    $('#shadow_opacity').simpleSlider('setRatio', currentOpacity);
+  });
+
+  if( restoreColorFromHash() ) {
+    $(window).trigger('hashchange');
+  }
 
 
   $('main').removeClass('loading');

@@ -367,7 +367,7 @@ html, body {
 
 main {
   padding: 30px;
-  padding-left: 230px;
+  padding-left: 280px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -389,6 +389,9 @@ aside {
   width: 250px;
   padding: 20px 20px 30px 20px;
   background: rgba(255, 255, 255, 0.08); }
+
+.input-group {
+  margin-bottom: 30px; }
 
 label {
   display: block;
@@ -846,6 +849,9 @@ colpick Color Picker / colpick.com
   background-color: #101010;
   border-color: #444; }
 
+.slider {
+  margin-top: 11px; }
+
 .slider > .dragger {
   background: #ffffff;
   -webkit-border-radius: 10px;
@@ -869,5 +875,23 @@ colpick Color Picker / colpick.com
   background: -moz-linear-gradient(top, #8DCA09, #72A307);
   background: linear-gradient(top, #8DCA09, #72A307);
   border-color: #496805; }
+
+@media( max-width: 768px ) {
+  main {
+    padding-left: 30px;
+    padding-top: 140px; }
+
+  aside {
+    width: auto;
+    min-height: 110px;
+    right: 0;
+    bottom: auto;
+    padding: 10px 10px 20px 10px; }
+
+  .input-group {
+    width: 33.3%;
+    padding: 0 10px;
+    margin-bottom: 0;
+    float: left; } }
 
 /*# sourceMappingURL=styles.css.map */

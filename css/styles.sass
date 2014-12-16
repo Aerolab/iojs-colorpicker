@@ -16,7 +16,7 @@ html, body
 
 main
   padding: 30px
-  padding-left: 230px
+  padding-left: 280px
   height: 100%
   display: flex
   align-items: center
@@ -42,6 +42,8 @@ aside
   padding: 20px 20px 30px 20px
   background: transparentize($white, 0.92)
 
+.input-group
+  margin-bottom: 30px
 
 label
   display: block
@@ -80,3 +82,22 @@ button
 
 @import "colpick"
 @import "slider"
+
+
+@media( max-width: 768px )
+  main
+    padding-left: 30px
+    padding-top: 110px+30px
+
+  aside
+    width: auto
+    min-height: 110px
+    right: 0
+    bottom: auto
+    padding: 10px 10px 20px 10px
+
+  .input-group
+    width: 33.3%
+    padding: 0 10px
+    margin-bottom: 0
+    float: left
