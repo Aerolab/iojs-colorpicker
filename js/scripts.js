@@ -104,6 +104,9 @@ $(document).ready(function(){
       .setValue( 0.8 + Math.random() * 0.2 )
       .setSaturation( 0.7 + Math.random() * 0.3 );
 
+    $('#main_color').val(newColor.toCSSHex().slice(1));
+    $('#background_color').val(newColor.shiftHue( (Math.random() > 0.5 ? +1 : -1) * 60).toCSSHex().slice(1));
+
     updateColors(newColor.toCSSHex().slice(1), defaultShadowOpacity, newColor.shiftHue( (Math.random() > 0.5 ? +1 : -1) * 60).toCSSHex().slice(1));
   });
 
