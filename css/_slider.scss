@@ -4,12 +4,13 @@
 
 .slider > .dragger {
   background: #ffffff;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  border-radius: 28px;
 
-  width: 16px;
-  height: 16px;
+  width: 36px;
+  height: 36px;
+  border: 4px solid #000;
 }
 
 .slider > .dragger:hover {
@@ -18,15 +19,13 @@
 
 
 .slider > .track, .slider > .highlight-track {
-  background: #ccc;
+  background: #4d4d4d;
 
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
 
-  background: transparentize(#000, 0.6);
-  box-shadow: inset 0px 1px 2px transparentize(#000, 0.4);
-  height: 4px;
+  height: 6px;
 }
 
 .slider > .highlight-track {

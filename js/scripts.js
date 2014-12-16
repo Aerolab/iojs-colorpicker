@@ -61,7 +61,7 @@ function updateColors(newColor, shadowOpacity, newBackground) {
 
 $(document).ready(function(){
 
-  var colpick_main = $('#main_color').colpick({
+  var $colpick_main = $('#main_color').colpick({
     layout:'hex',
     submit:0,
     colorScheme:'dark',
@@ -76,7 +76,7 @@ $(document).ready(function(){
   }).colpickSetColor( currentColor );
 
 
-  var colpick_bg = $('#background_color').colpick({
+  var $colpick_bg = $('#background_color').colpick({
     layout:'hex',
     submit:0,
     colorScheme:'dark',
@@ -114,17 +114,21 @@ $(document).ready(function(){
   $('#reset').on('click', function(event){
     event.preventDefault();
 
+    $('#main_color').val(primary.toCSSHex().slice(1));
+    $('#background_color').val(background.toCSSHex().slice(1));
+
     updateColors(primary.toCSSHex().slice(1), defaultShadowOpacity, background.toCSSHex().slice(1));
   });
 
   $('#invert').on('click', function(event){
     event.preventDefault();
 
-    var oldMain = $('#main_color').val();
-    var oldBg = $('#background_color').val();
+    var oldMain = currentColor;
+    var oldBg = currentBackground;
 
     $('#main_color').val(oldBg);
     $('#background_color').val(oldMain);
+
     updateColors(oldBg, currentOpacity, oldMain);
   });
 
@@ -153,6 +157,12 @@ $(document).ready(function(){
     $(window).trigger('hashchange');
   }
 
+  $('#main_color_preview').click(function(event){
+    $('#main_color').colpickShow();
+  });
+  $('#background_color_preview').click(function(event){
+    $('#background_color').colpickShow();
+  });
 
   $('main').removeClass('loading');
 

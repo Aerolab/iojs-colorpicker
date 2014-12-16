@@ -365,9 +365,20 @@ html, body {
   height: 100%;
   font-family: "Source Sans Pro", sans-serif; }
 
+.cf:before, .input-color:before, .cf:after, .input-color:after {
+  content: " ";
+  display: table; }
+
+.cf:after, .input-color:after {
+  clear: both; }
+
+.screenreader {
+  position: absolute;
+  left: -999px; }
+
 main {
   padding: 30px;
-  padding-left: 280px;
+  padding-left: 310px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -386,62 +397,117 @@ aside {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 250px;
-  padding: 20px 20px 30px 20px;
-  background: rgba(255, 255, 255, 0.08); }
+  width: 280px;
+  padding: 100px 30px 30px 30px;
+  background: #211f22;
+  border-right: 1px dashed #4d4d4d;
+  display: flex;
+  align-items: center; }
+
+.sprite, h1.logo, button.share {
+  background: url(images/sprite.png) no-repeat 0px 0px;
+  background-size: 172.5px 225px; }
+
+.logo-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; }
+
+h1.logo {
+  display: block;
+  margin: 60px auto 0 auto;
+  width: 173px;
+  height: 79px;
+  background-position: 0px 0px; }
 
 .input-group {
-  margin-bottom: 30px;
-  position: relative; }
+  margin-bottom: 10px;
+  position: relative;
+  vertical-align: top; }
 
-.share.facebook {
-  background: #3b5998; }
-.share.twitter {
-  background: #55ACEE; }
-.share:first-child {
-  margin-bottom: 30px; }
+button.share {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: none;
+  margin: 0 5px; }
+  button.share.facebook {
+    background-position: 0px -100px; }
+  button.share.twitter {
+    background-position: -50px -100px; }
 
-.preview_color {
-  position: absolute;
-  width: 20px;
-  height: 20px;
+.preview-color {
+  overflow: hidden;
+  width: 28px;
+  height: 28px;
   background: transparent;
-  top: 50px;
-  left: 15px;
-  border-radius: 2px; }
-  .preview_color:after {
-    content: "#";
-    margin-left: 35px;
-    color: #ffffff; }
+  margin-top: 1px;
+  border-radius: 30px; }
 
 label {
   display: block;
-  padding: 10px 0;
-  color: rgba(255, 255, 255, 0.8); }
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: bold;
+  color: #4d4d4d; }
 
 input {
   width: 100%;
   border: none;
-  padding: 10px 15px 10px 60px;
+  line-height: 20px;
+  padding: 4px 9px 4px 9px;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.6);
-  border-radius: 4px; }
+  background: none;
+  border: 1px solid #4d4d4d;
+  border-radius: 4px;
+  text-transform: uppercase; }
   input:focus {
     outline: none; }
 
 button {
   width: 100%;
-  padding: 10px 15px;
+  padding: 2px 15px 4px 15px;
   border: none;
   border-radius: 4px;
+  border: 2px solid #ffffff;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.4);
+  background: none;
   text-align: center; }
   button:focus {
     outline: none; }
   button:hover {
     background: rgba(0, 0, 0, 0.3); }
+
+.main-inputs {
+  width: 100%; }
+
+.input-color .preview-color, .input-color input, .input-color label {
+  float: left; }
+.input-color .preview-color {
+  margin-left: 0px; }
+.input-color input {
+  width: 77px;
+  margin-left: 20px; }
+.input-color label {
+  margin-left: 10px; }
+
+.input-slider {
+  margin-top: 45px;
+  margin-bottom: 35px; }
+  .input-slider label {
+    margin-top: -15px;
+    margin-left: 137px; }
+
+.input-social {
+  text-align: center;
+  padding: 0px 0px 30px 0px;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; }
 
 /*
 colpick Color Picker / colpick.com
@@ -870,22 +936,24 @@ colpick Color Picker / colpick.com
   background-color: #101010;
   border-color: #444; }
 
+.slider {
+  margin-top: 11px; }
+
 .slider > .dragger {
   background: #ffffff;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  width: 16px;
-  height: 16px; }
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  border-radius: 28px;
+  width: 36px;
+  height: 36px;
+  border: 4px solid #000; }
 
 .slider > .track, .slider > .highlight-track {
-  background: #ccc;
+  background: #4d4d4d;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.6);
-  height: 4px; }
+  height: 6px; }
 
 .slider > .highlight-track {
   background-color: #8DCA09;
@@ -897,20 +965,70 @@ colpick Color Picker / colpick.com
 @media( max-width: 768px ) {
   main {
     padding-left: 30px;
-    padding-top: 140px; }
+    padding-top: 210px; }
 
   aside {
     width: auto;
-    min-height: 110px;
+    min-height: 180px;
     right: 0;
     bottom: auto;
-    padding: 10px 10px 20px 10px; }
+    padding: 100px 10px 20px 10px;
+    border-right: none;
+    border-bottom: 1px dashed #4d4d4d; }
+
+  h1.logo {
+    margin-top: 35px;
+    width: 110px;
+    height: 50px;
+    background-size: 110px 144px; }
+
+  .main-inputs {
+    width: 100%;
+    text-align: center; }
 
   .input-group {
-    width: 33.3%;
-    padding: 0 10px;
-    margin-bottom: 0;
-    float: left; }
+    width: auto;
+    margin: 0 4px;
+    display: inline-block; }
 
-  .hide {
+  .input-color {
+    position: relative; }
+    .input-color .preview-color {
+      width: 38px;
+      height: 38px; }
+    .input-color input {
+      position: absolute;
+      visibility: hidden;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      bottom: 0;
+      left: 0; }
+    .input-color label {
+      display: none; }
+
+  .input-slider {
+    display: none; }
+
+  .hidden-mobile {
+    display: none; }
+
+  button.invert, button.randomize, button.reset {
+    overflow: hidden;
+    background: url(images/sprite.png) no-repeat 0px 0px;
+    background-size: 172.5px 225px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    text-indent: -9999px; }
+  button.invert {
+    background-position: 0px -150px; }
+  button.randomize {
+    background-position: -45px -150px; }
+  button.reset {
+    background-position: -91px -150px; }
+
+  .input-social {
     display: none; } }
+
+/*# sourceMappingURL=styles.css.map */
