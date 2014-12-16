@@ -16,7 +16,7 @@ html, body
 
 main
   padding: 30px
-  padding-left: 230px
+  padding-left: 280px
   height: 100%
   display: flex
   align-items: center
@@ -29,6 +29,10 @@ main
     width: 100%
     max-width: 500px
 
+  &.loading
+    visibility: hidden
+
+
 aside
   position: absolute
   top: 0
@@ -38,6 +42,18 @@ aside
   padding: 20px 20px 30px 20px
   background: transparentize($white, 0.92)
 
+.input-group
+  margin-bottom: 30px
+  position: relative
+
+.preview_color
+  position: absolute
+  width: 20px
+  height: 20px
+  background: transparent
+  top: 50px
+  left: 15px
+  border-radius: 2px
 
 label
   display: block
@@ -47,7 +63,7 @@ label
 input
   width: 100%
   border: none
-  padding: 10px 15px
+  padding: 10px 15px 10px 50px
   color: $white
   background: transparentize($black, 0.6)
   box-shadow: inset 0px 1px 2px transparentize($black, 0.4)
@@ -56,6 +72,42 @@ input
   &:focus
     outline: none
 
+button
+  width: 100%
+  padding: 10px 15px
+  border: none
+  border-radius: 4px
+  color: $white
+  background: transparentize($black, 0.6)
+  text-align: center
+
+  &:focus
+    outline: none
+    
+  &:hover
+    background: transparentize($black, 0.7)
+
+
+
 
 @import "colpick"
 @import "slider"
+
+
+@media( max-width: 768px )
+  main
+    padding-left: 30px
+    padding-top: 110px+30px
+
+  aside
+    width: auto
+    min-height: 110px
+    right: 0
+    bottom: auto
+    padding: 10px 10px 20px 10px
+
+  .input-group
+    width: 33.3%
+    padding: 0 10px
+    margin-bottom: 0
+    float: left
