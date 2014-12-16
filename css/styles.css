@@ -1013,7 +1013,7 @@ colpick Color Picker / colpick.com
   .hidden-mobile {
     display: none; }
 
-  button.invert, button.randomize, button.reset {
+  button.invert, button.invert:hover, button.randomize, button.randomize:hover, button.reset, button.reset:hover {
     overflow: hidden;
     background: url(images/sprite.png) no-repeat 0px 0px;
     background-size: 172.5px 225px;
@@ -1021,11 +1021,11 @@ colpick Color Picker / colpick.com
     height: 38px;
     border: none;
     text-indent: -9999px; }
-  button.invert {
+  button.invert, button.invert:hover {
     background-position: 0px -150px; }
-  button.randomize {
+  button.randomize, button.randomize:hover {
     background-position: -45px -150px; }
-  button.reset {
+  button.reset, button.reset:hover {
     background-position: -91px -150px; }
 
   .input-social {
