@@ -63,6 +63,12 @@ aside
   left: 15px
   border-radius: 2px
 
+  &:after
+    content: "#"
+    // position: absolute
+    margin-left: 35px
+    color: $white
+
 label
   display: block
   padding: 10px 0
@@ -71,7 +77,7 @@ label
 input
   width: 100%
   border: none
-  padding: 10px 15px 10px 50px
+  padding: 10px 15px 10px 60px
   color: $white
   background: transparentize($black, 0.6)
   box-shadow: inset 0px 1px 2px transparentize($black, 0.4)
@@ -119,3 +125,6 @@ button
     padding: 0 10px
     margin-bottom: 0
     float: left
+
+  .hide
+    display: none
