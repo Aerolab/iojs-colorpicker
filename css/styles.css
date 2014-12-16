@@ -404,6 +404,19 @@ input {
   input:focus {
     outline: none; }
 
+button {
+  width: 100%;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center; }
+  button:focus {
+    outline: none; }
+  button:hover {
+    background: rgba(0, 0, 0, 0.3); }
+
 /*
 colpick Color Picker / colpick.com
 */

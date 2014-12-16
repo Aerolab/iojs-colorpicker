@@ -55,7 +55,7 @@ $(document).ready(function(){
     }
   }).keyup(function(){
     $(this).colpickSetColor(this.value);
-  }).colpickSetColor('F26B24');
+  }).colpickSetColor( primary.toCSSHex() );
 
 
   $('#background_color').colpick({
@@ -70,12 +70,37 @@ $(document).ready(function(){
     }
   }).keyup(function(){
     $(this).colpickSetColor(this.value);
-  }).colpickSetColor('032c2c');
+  }).colpickSetColor( background.toCSSHex() );
 
 
   $("#shadow_opacity").bind("slider:changed", function (event, data) {
     currentOpacity = data.ratio;
     updateLogo(currentColor, currentOpacity);
   }).simpleSlider().simpleSlider('setRatio', defaultShadowOpacity);
+
+
+
+  $('#randomize').on('click', function(event){
+    event.preventDefault();
+    var newColor = Color('#ffffff')
+      .setHue( Math.random() * 240 )
+      .setValue( 0.8 + Math.random() * 0.2 )
+      .setSaturation( 0.7 + Math.random() * 0.3 );
+
+    $('#main_color').colpickSetColor( newColor.toCSSHex() );
+    $('#background_color').colpickSetColor( newColor.triadicScheme()[ Math.floor(Math.random() * 2) + 1 ].toCSSHex() );
+
+    $("#shadow_opacity").simpleSlider('setRatio', defaultShadowOpacity);
+  });
+
+
+  $('#reset').on('click', function(event){
+    event.preventDefault();
+
+    $('#main_color').colpickSetColor( primary.toCSSHex() );
+    $('#background_color').colpickSetColor( background.toCSSHex() );
+
+    $("#shadow_opacity").simpleSlider('setRatio', defaultShadowOpacity);
+  });
 
 });
