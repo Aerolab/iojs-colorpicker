@@ -391,7 +391,28 @@ aside {
   background: rgba(255, 255, 255, 0.08); }
 
 .input-group {
+  margin-bottom: 30px;
+  position: relative; }
+
+.share.facebook {
+  background: #3b5998; }
+.share.twitter {
+  background: #55ACEE; }
+.share:first-child {
   margin-bottom: 30px; }
+
+.preview_color {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  top: 50px;
+  left: 15px;
+  border-radius: 2px; }
+  .preview_color:after {
+    content: "#";
+    margin-left: 35px;
+    color: #ffffff; }
 
 label {
   display: block;
@@ -401,7 +422,7 @@ label {
 input {
   width: 100%;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 15px 10px 60px;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.4);
   box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.6);
@@ -849,9 +870,6 @@ colpick Color Picker / colpick.com
   background-color: #101010;
   border-color: #444; }
 
-.slider {
-  margin-top: 11px; }
-
 .slider > .dragger {
   background: #ffffff;
   -webkit-border-radius: 10px;
@@ -892,6 +910,7 @@ colpick Color Picker / colpick.com
     width: 33.3%;
     padding: 0 10px;
     margin-bottom: 0;
-    float: left; } }
+    float: left; }
 
-/*# sourceMappingURL=styles.css.map */
+  .hide {
+    display: none; } }

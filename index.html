@@ -50,12 +50,18 @@
 <aside>
   <div class="input-group">
     <label for="main_color">Logo</label>
+    <div id="main_color_preview" class="preview_color"></div>
     <input type="text" id="main_color" value="f26b24" />
   </div>
 
   <div class="input-group">
     <label for="background_color">Background</label>
+    <div id="background_color_preview" class="preview_color"></div>
     <input type="text" id="background_color" value="032c2c" />
+  </div>
+
+  <div class="input-group hide">
+    <button id="invert">Invert</button>
   </div>
 
   <div class="input-group">
@@ -63,15 +69,19 @@
     <input type="text" id="shadow_opacity" value="0.5" />
   </div>
 
-  <!--
-  <div class="input-group">
+  <div class="input-group hide">
     <button id="randomize">Randomize!</button>
   </div>
 
-  <div class="input-group">
+  <div class="input-group hide">
     <button id="reset">Reset</button>
   </div>
-  -->
+
+  <div class="input-group hide">
+    <button class="share twitter">Share on Twitter</button>
+    <button class="share facebook">Share on Facebook</button>
+  </div>
+
 </aside>
 
 

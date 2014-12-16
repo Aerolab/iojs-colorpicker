@@ -31,6 +31,9 @@ function updateColors(newColor, shadowOpacity, newBackground) {
 
   var shadowMultiplier = shadowOpacity / defaultShadowOpacity;
 
+  $('#main_color_preview').css('background-color', color.toCSSHex());
+  $('#background_color_preview').css('background-color', '#'+currentBackground);
+
   $('path.primary')   .attr('fill',  color.toCSSHex() );
   $('path.secondary') .attr('fill',  color.shiftHue( secondary.toHSV().hue - primary.toHSV().hue )
                                           .desaturateByRatio( (primary.toHSV().saturation - secondary.toHSV().saturation) / primary.toHSV().saturation )
@@ -58,7 +61,7 @@ function updateColors(newColor, shadowOpacity, newBackground) {
 
 $(document).ready(function(){
 
-  $('#main_color').colpick({
+  var colpick_main = $('#main_color').colpick({
     layout:'hex',
     submit:0,
     colorScheme:'dark',
@@ -73,7 +76,7 @@ $(document).ready(function(){
   }).colpickSetColor( currentColor );
 
 
-  $('#background_color').colpick({
+  var colpick_bg = $('#background_color').colpick({
     layout:'hex',
     submit:0,
     colorScheme:'dark',
@@ -101,6 +104,9 @@ $(document).ready(function(){
       .setValue( 0.8 + Math.random() * 0.2 )
       .setSaturation( 0.7 + Math.random() * 0.3 );
 
+    $('#main_color').val(newColor.toCSSHex().slice(1));
+    $('#background_color').val(newColor.shiftHue( (Math.random() > 0.5 ? +1 : -1) * 60).toCSSHex().slice(1));
+
     updateColors(newColor.toCSSHex().slice(1), defaultShadowOpacity, newColor.shiftHue( (Math.random() > 0.5 ? +1 : -1) * 60).toCSSHex().slice(1));
   });
 
@@ -109,6 +115,17 @@ $(document).ready(function(){
     event.preventDefault();
 
     updateColors(primary.toCSSHex().slice(1), defaultShadowOpacity, background.toCSSHex().slice(1));
+  });
+
+  $('#invert').on('click', function(event){
+    event.preventDefault();
+
+    var oldMain = $('#main_color').val();
+    var oldBg = $('#background_color').val();
+
+    $('#main_color').val(oldBg);
+    $('#background_color').val(oldMain);
+    updateColors(oldBg, currentOpacity, oldMain);
   });
 
 
@@ -138,5 +155,33 @@ $(document).ready(function(){
 
 
   $('main').removeClass('loading');
+
+  var appUrl = 'http://aerolab.github.io/iojs-colorpicker/';
+  var shareText = 'Just selected a new color for the #iojs logo check it out!';
+
+  $(".share").click(function() {
+    var window_size = '';
+    var hash = window.location.hash;
+    hash = hash.replace('#', '%23');
+
+    if ($(this).hasClass('facebook')) {
+
+      window_size = "width=585,height=368";
+      url = 'http://www.facebook.com/sharer/sharer.php?u=' + appUrl + hash;
+
+    } else if ($(this).hasClass('twitter')) {
+
+      window_size = "width=585,height=261";
+      shareText = shareText.replace('#', '%23');
+      url = 'http://www.twitter.com/intent/tweet?text=' + shareText + ' %23' + $('#main_color').val() + ' ' + appUrl + hash + ' @aerolab';
+
+    }
+
+    if (window_size != '') {
+      window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,' + window_size);
+    }
+    
+    return false;
+  });
 
 });
