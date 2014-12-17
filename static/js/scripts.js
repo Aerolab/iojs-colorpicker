@@ -185,7 +185,7 @@ $(document).ready(function(){
   $(".share").click(function() {
     var window_size = '';
     var hash = window.location.hash;
-    hash = hash.replace('#', '%23');
+    var color = $('#main_color').val();
 
     if ($(this).hasClass('facebook')) {
 
@@ -196,11 +196,12 @@ $(document).ready(function(){
 
       window_size = "width=585,height=261";
       shareText = shareText.replace('#', '%23');
-      url = 'http://www.twitter.com/intent/tweet?text=' + shareText + ' %23' + $('#main_color').val() + ' ' + appUrl + hash + ' @aerolab';
+      url = 'http://www.twitter.com/intent/tweet?text=' + shareText + ' ' + color + ' ' + appUrl + hash + ' @aerolab';
 
     }
 
     if (window_size != '') {
+      url = url.replace(/#/g, '%23');
       window.open(url, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,' + window_size);
     }
     
