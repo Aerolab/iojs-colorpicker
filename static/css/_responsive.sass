@@ -112,3 +112,11 @@
       margin-bottom: 5px
     &.facebook
       background-position: 0px -99px
+
+
+  /* Colpick has a bug where the picker can be placed outside the viewport (with negative left). Instead of fixing it, here's a hack */
+  .colpick_hex
+    width: 206px !important
+    top: 75px !important
+    left: 50% !important
+    margin-left: -103px !important
