@@ -434,12 +434,25 @@ button.share {
   display: inline-block;
   width: 40px;
   height: 40px;
+  border-radius: 40px;
   border: none;
-  margin: 0 5px; }
+  margin: 0 5px;
+  background-color: #ffffff; }
   button.share.facebook {
     background-position: 0px -100px; }
   button.share.twitter {
     background-position: -50px -100px; }
+  button.share:hover {
+    background-color: #e6e6e6; }
+
+.social-buttons {
+  text-align: center;
+  padding: 0px 0px 30px 0px;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 280px; }
 
 /*
 colpick Color Picker / colpick.com
@@ -963,15 +976,6 @@ button.btn {
     margin-top: -15px;
     margin-left: 137px; }
 
-.input-social {
-  text-align: center;
-  padding: 0px 0px 30px 0px;
-  margin: 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0; }
-
 @media( max-width: 768px ) {
   main {
     padding-left: 30px;
@@ -1028,12 +1032,14 @@ button.btn {
     overflow: hidden;
     background: url(images/sprite.png) no-repeat 0px 0px;
     background-size: 172.5px 225px;
+    background-color: #4d4d4d;
     width: 38px;
     height: 38px;
+    border-radius: 38px;
     border: none;
     text-indent: -9999px; }
     button.invert:hover, button.randomize:hover, button.reset:hover {
-      background-color: transparent; }
+      background-color: #5a5a5a; }
   button.invert {
     background-position: 0px -150px; }
   button.randomize {
@@ -1041,26 +1047,25 @@ button.btn {
   button.reset {
     background-position: -91px -150px; }
 
-  .input-social {
+  .social-buttons {
     position: absolute;
-    top: 25px;
-    right: 25px;
-    left: auto;
-    bottom: auto;
-    width: 31px;
+    top: auto;
+    right: 0;
+    left: 0;
+    width: auto;
+    bottom: 25px;
     padding: 0;
-    margin: 0;
-    z-index: 10; }
+    z-index: 10;
+    text-align: center; }
 
   button.share {
-    background-size: 129px 169px;
-    width: 31px;
-    height: 31px;
-    margin: 0; }
+    width: 38px;
+    height: 38px;
+    margin: 0 4px; }
     button.share.twitter {
-      background-position: -37px -74px;
+      background-position: -51px -101px;
       margin-bottom: 5px; }
     button.share.facebook {
-      background-position: 0px -74px; } }
+      background-position: 0px -99px; } }
 
 /*# sourceMappingURL=styles.css.map */

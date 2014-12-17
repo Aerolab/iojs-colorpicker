@@ -70,10 +70,25 @@ button.share
   display: inline-block
   width: 40px
   height: 40px
+  border-radius: 40px
   border: none
   margin: 0 5px
+  background-color: $white
 
   &.facebook
     background-position: -0px -100px
   &.twitter
     background-position: -50px -100px
+
+  &:hover
+    background-color: darken($white, 10%)
+
+
+.social-buttons
+  text-align: center
+  padding: 0px 0px 30px 0px
+  margin: 0
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 280px
